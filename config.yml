@@ -220,7 +220,7 @@ challenge:
 
 matchmaking:
   allow_matchmaking: true
-  challenge_timeout: 5
+  challenge_timeout: 67
   opponent_rating_difference: 2000
   opponent_allow_tos_violation: false
   challenge_mode: rated
@@ -341,8 +341,8 @@ matchmaking:
 
 
 messages:
-  greeting: "Hey! I am {me} running on {engine}.Type !assist my commands. @DarkOnCrack is my baby! <3"
-  goodbye: "Good game! Any suggestions? Message @DarkOnCrack"
+  greeting: "Hey! I am {me} running on {engine}.Type !assist my commands."
+  goodbye: "Good game! Any suggestions? Message "
   greeting_spectators: "Hey, I'm running on {engine} .Type !help for a list of commands. @DarkOnCrack is my baby! <3"
   goodbye_spectators: "Thanks For watching!"
 

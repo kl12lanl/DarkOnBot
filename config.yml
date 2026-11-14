@@ -224,14 +224,19 @@ matchmaking:
   opponent_rating_difference: 2000
   opponent_allow_tos_violation: false
   challenge_mode: rated
-  timeout: 30
-  delay: 30
+  timeout: 45
+  delay: 240
   selection: weighted_random
   types:
     bullet_0_5:
       enabled: true
-      tc: "0.5+0"      # 30 Sekunden ohne Inkrement
-      weight: 100
+      tc: "0.5+0"
+      weight: 40
+      variant: standard
+    bullet_1_0:
+      enabled: true
+      tc: "1+0"
+      weight: 60
       variant: standard
     bullet_1_0:
       enable: true

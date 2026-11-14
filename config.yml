@@ -220,58 +220,58 @@ challenge:
 
 matchmaking:
   allow_matchmaking: true
-  challenge_timeout: 67
-  opponent_rating_difference: 2000
+  challenge_timeout: 20
+  opponent_rating_difference: 250
   opponent_allow_tos_violation: false
   challenge_mode: rated
-  timeout: 45
-  delay: 240
+  timeout: 30
+  delay: 60
   selection: weighted_random
   types:
-    bullet_0_5:
-      enabled: true
-      tc: "0.5+0"
-      weight: 40
-      variant: standard
     bullet_1_0:
       enabled: true
       tc: "1+0"
-      weight: 60
+      weight: 40
       variant: standard
-    bullet_1_0:
-      enable: true
-      tc: "1+0"        # 1 Minute ohne Inkrement
-      weight: 100
+    bullet_2_1:
+      enabled: true
+      tc: "2+1"
+      weight: 80
       variant: standard
     blitz_3_0:
       enabled: true
       tc: "3+0"
       weight: 100
       variant: standard
+    blitz_3_2:
+      enabled: true
+      tc: "3+2"
+      weight: 100
+      variant: standard
     blitz_5_0:
       enabled: true
       tc: "5+0"
-      weight: 100
+      weight: 60
       variant: standard
     rapid_10_0:
-      enabled: true
+      enabled: false
       tc: "10+0"
-      weight: 100
+      weight: 10
       variant: standard
     classical_30_0:
-      enabled: true
+      enabled: false
       tc: "30+0"
       weight: 1
       variant: standard
     bullet_chess960:
       enabled: true
       tc: "1+0"
-      weight: 50
+      weight: 30
       variant: chess960
     blitz_chess960:
       enabled: true
       tc: "3+0"
-      weight: 100
+      weight: 50
       variant: chess960
     bullet_crazyhouse:
       enabled: true

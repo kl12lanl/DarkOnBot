@@ -219,7 +219,7 @@ challenge:
     - casual
 
 matchmaking:
-  allow_matchmaking: false
+  allow_matchmaking: true
   challenge_timeout: 20
   opponent_rating_difference: 250
   opponent_allow_tos_violation: false

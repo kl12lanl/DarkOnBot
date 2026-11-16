@@ -186,8 +186,7 @@ challenge:
   time_controls:
     - bullet
   bullet_with_increment_only: false
-  bot_modes:
-    - rated
+  bot_modes: []
   human_modes:
     - rated
     - casual
@@ -195,13 +194,14 @@ challenge:
 matchmaking:
   allow_matchmaking: true
   challenge_timeout: 10
-  opponent_rating_difference: 250
+  opponent_min_rating: 2920
+  opponent_rating_difference: 200
   opponent_allow_tos_violation: false
   challenge_mode: rated
   timeout: 15
   delay: 15
   selection: weighted_random
-  types:
+  type:
     bullet_1_0:
       enabled: true
       tc: "1+0"

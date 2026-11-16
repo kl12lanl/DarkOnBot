@@ -203,7 +203,7 @@ matchmaking:
   timeout: 15
   delay: 15
   selection: weighted_random
-  type:
+  types:
     bullet_1_0:
       enabled: true
       tc: "1+0"

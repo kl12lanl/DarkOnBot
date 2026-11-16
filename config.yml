@@ -6,10 +6,10 @@ engines:
     name: "sf"
     ponder: true
     silence_stderr: false
-    move_overhead_multiplier: 20.0
+    move_overhead_multiplier: 4.0
     uci_options:
       Threads: 4
-      Hash: 2508
+      Hash: 1024
       Move Overhead: 100
     limits:
       # time: 20.0
@@ -20,10 +20,10 @@ engines:
     name: "sf"
     ponder: true
     silence_stderr: false
-    move_overhead_multiplier: 21.0
+    move_overhead_multiplier: 4.0
     uci_options:
       Threads: 4
-      Hash: 2248
+      Hash: 512
       Move Overhead: 100
     limits:
       # time: 20.0
@@ -35,10 +35,10 @@ engines:
     name: "sf"
     ponder: true
     silence_stderr: false
-    move_overhead_multiplier: 22.0
+    move_overhead_multiplier: 4.0
     uci_options:
       Threads: 4
-      Hash: 2248
+      Hash: 512
       Move Overhead: 100
     limits:
       # time: 20.0
@@ -50,10 +50,10 @@ engines:
     name: "fsf"
     ponder: true
     silence_stderr: false
-    move_overhead_multiplier: 20.0
+    move_overhead_multiplier: 4.0
     uci_options:
       Threads: 4
-      Hash: 4096
+      Hash: 1024
       Move Overhead: 100
       EvalFile: "horde-28173ddccabe.nnue:racingkings-636b95f085e3.nnue:crazyhouse-8ebf84784ad2.nnue:kingofthehill-978b86d0e6a4.nnue:antichess-dd3cbe53cd4e.nnue:atomic-2cf13ff256cc.nnue:3check-cb5f517c228b.nnue"
     limits:
@@ -66,7 +66,7 @@ syzygy:
     enabled: true
     paths:
       - "./engines/syzygy"
-    max_pieces: 7
+    max_pieces: 6
     instant_play: true
   antichess:
     enabled: false
@@ -91,50 +91,41 @@ opening_books:
   enabled: true
   priority: 900
   books:
-#   standard:
-#     selection: weighted_random          # Move selection is one of "weighted_random", "uniform_random" or "best_move".
-#     max_depth: 16                       # Half move max depth. (Comment this line for max depth)
-#     names:                              # List of names of books to use if there is no specific book for the time control, white, black or chess960
-#       - DefaultBook    
     standard_black:
       selection: weighted_random
- 
-    # max depth : 69 
       names:
         - Stay
         - Win
         - Black
     standard_white:
-      selection: weighted_random 
-    # max depth : 69 
+      selection: weighted_random
       names:
         - Stay
         - White
         - Black
         - Optimus
 
-    chess960: 
-      selection: best_move 
-      names: 
+    chess960:
+      selection: best_move
+      names:
         - Chess960
-    chess960_white: 
-      selection: best_move 
-      names: 
+    chess960_white:
+      selection: best_move
+      names:
         - Ches
         - White1
         - White2
 
-
-    chess960_black: 
-      selection: best_move 
-      names: 
+    chess960_black:
+      selection: best_move
+      names:
         - Ches
         - Black1
         - Black2
-        
-    humans: 
-      selection: best_move 
-      names: 
+
+    humans:
+      selection: best_move
+      names:
         - Torma
         - Titans
 
@@ -150,27 +141,25 @@ online_moves:
     only_with_wins: true
     selection: "win_rate"
     anti: true
-    # max_depth: 20
 
   lichess_cloud:
-    enabled: false
+    enabled: true
     priority: 200
-    only_without_book: false
+    only_without_book: true
     min_eval_depth: 20
-    min_time: 10
+    min_time: 15
     timeout: 3
-    # max_depth: 30
 
   chessdb:
-    enabled: false                         # Activate online moves from chessdb.cn/queryc_en/
-    priority: 100                         # Priority with which this move source is used. Higher priority is used first.
-    only_without_book: false              # Whether the chessdb should only be used if there is no matching book.
-    min_candidates: 5                     # Minimum number of candidate moves.
-    min_time: 20                          # Time the bot must have at least to use the online move. +10 seconds in games without increment.
-    timeout: 5                            # Time the server has to respond.
-    selection: "best"                     # Move selection is one of "optimal", "best" or "good".
+    enabled: false
+    priority: 100
+    only_without_book: false
+    min_candidates: 5
+    min_time: 20
+    timeout: 5
+    selection: "best"
     max_depth: 30
-    
+
   online_egtb:
     enabled: true
     min_time: 5
@@ -189,67 +178,52 @@ resign:
   consecutive_moves: 6
   against_humans: false
 
-
-
 challenge:
   enabled: true
   concurrency: 1
   variants:
     - standard
-    - chess960
-    - kingOfTheHill
-    - threeCheck
-    - antichess
-    - atomic
-    - horde
-    - racingKings
-    - crazyhouse
   time_controls:
     - bullet
-    - blitz
-    - rapid
-    - classical
-    - correspondence
   bullet_with_increment_only: false
   bot_modes:
     - rated
-    - casual
   human_modes:
     - rated
     - casual
 
 matchmaking:
   allow_matchmaking: true
-  challenge_timeout: 20
+  challenge_timeout: 10
   opponent_rating_difference: 250
   opponent_allow_tos_violation: false
   challenge_mode: rated
-  timeout: 30
-  delay: 60
+  timeout: 15
+  delay: 15
   selection: weighted_random
   types:
     bullet_1_0:
       enabled: true
       tc: "1+0"
-      weight: 40
+      weight: 100
       variant: standard
     bullet_2_1:
       enabled: true
       tc: "2+1"
-      weight: 80
+      weight: 60
       variant: standard
     blitz_3_0:
-      enabled: true
+      enabled: false
       tc: "3+0"
       weight: 100
       variant: standard
     blitz_3_2:
-      enabled: true
+      enabled: false
       tc: "3+2"
       weight: 100
       variant: standard
     blitz_5_0:
-      enabled: true
+      enabled: false
       tc: "5+0"
       weight: 60
       variant: standard
@@ -264,93 +238,91 @@ matchmaking:
       weight: 1
       variant: standard
     bullet_chess960:
-      enabled: true
+      enabled: false
       tc: "1+0"
       weight: 30
       variant: chess960
     blitz_chess960:
-      enabled: true
+      enabled: false
       tc: "3+0"
       weight: 50
       variant: chess960
     bullet_crazyhouse:
-      enabled: true
+      enabled: false
       tc: "1+0"
       weight: 100
       variant: crazyhouse
     blitz_crazyhouse:
-      enabled: true
+      enabled: false
       tc: "3+0"
       weight: 100
       variant: crazyhouse
     bullet_threeCheck:
-      enabled: true
+      enabled: false
       tc: "1+0"
       weight: 100
       variant: threeCheck
     blitz_threeCheck:
-      enabled: true
+      enabled: false
       tc: "3+0"
       weight: 100
       variant: threeCheck
     bullet_kingOfTheHill:
-      enabled: true
+      enabled: false
       tc: "1+0"
       weight: 100
       variant: kingOfTheHill
     blitz_kingOfTheHill:
-      enabled: true
+      enabled: false
       tc: "3+0"
       weight: 100
       variant: kingOfTheHill
     bullet_atomic:
-      enabled: true
+      enabled: false
       tc: "1+0"
       weight: 100
-      variant: atomic      
+      variant: atomic
     blitz_atomic:
-      enabled: true
+      enabled: false
       tc: "3+0"
       weight: 100
       variant: atomic
     bullet_racingKings:
-      enabled: true
+      enabled: false
       tc: "1+0"
       weight: 100
       variant: racingKings
     blitz_racingKings:
-      enabled: true
+      enabled: false
       tc: "3+0"
       weight: 100
       variant: racingKings
     bullet_antichess:
-      enabled: true
-      tc: "1+0" 
+      enabled: false
+      tc: "1+0"
       weight: 100
-      variant: antichess 
+      variant: antichess
     blitz_antichess:
-      enabled: true
-      tc: "3+0" 
+      enabled: false
+      tc: "3+0"
       weight: 100
-      variant: antichess 
+      variant: antichess
     bullet_horde:
-      enabled: true
-      tc: "1+0" 
+      enabled: false
+      tc: "1+0"
       weight: 100
       variant: horde
     blitz_horde:
-      enabled: true
-      tc: "3+0" 
+      enabled: false
+      tc: "3+0"
       weight: 100
       variant: horde
-
 
 messages:
   greeting: "Hey! I am {me} running on {engine}.Type !assist my commands."
   goodbye: "Good game! Any suggestions? Message me"
   greeting_spectators: "Hey, I'm running on {engine} .Type !help for a list of commands. 1"
   goodbye_spectators: "Thanks For watching!"
-
 
 books:
   Torma: "./engines/Torma.bin"

@@ -193,7 +193,7 @@ resign:
 
 challenge:
   enabled: true
-  concurrency: 4
+  concurrency: 1
   variants:
     - standard
     - chess960
@@ -347,8 +347,8 @@ matchmaking:
 
 messages:
   greeting: "Hey! I am {me} running on {engine}.Type !assist my commands."
-  goodbye: "Good game! Any suggestions? Message "
-  greeting_spectators: "Hey, I'm running on {engine} .Type !help for a list of commands. @DarkOnCrack is my baby! <3"
+  goodbye: "Good game! Any suggestions? Message me"
+  greeting_spectators: "Hey, I'm running on {engine} .Type !help for a list of commands. 1"
   goodbye_spectators: "Thanks For watching!"
 
 

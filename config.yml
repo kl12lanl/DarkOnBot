@@ -186,7 +186,9 @@ challenge:
   time_controls:
     - bullet
   bullet_with_increment_only: false
-  bot_modes: []
+  bot_modes: 
+    - rated
+    - casual
   human_modes:
     - rated
     - casual

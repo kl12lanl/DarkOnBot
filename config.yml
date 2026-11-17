@@ -183,10 +183,8 @@ challenge:
   bullet_with_increment_only: false
   bot_modes: 
     - rated
-    - casual
   human_modes:
     - rated
-    - casual
 
 matchmaking:
   allow_matchmaking: true
